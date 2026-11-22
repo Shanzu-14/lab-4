@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Register | Web Design Workshop</title>
+  <link rel="icon" href="logo.jpeg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html"><img class="logo" src="logo.jpeg" alt="Gyalpozhing College of Information Technology logo" width="110" height="110"></a>
+    <div class="header-text">
+      <h1>GCIT Innovation Week</h1>
+      <p>Register for the Web Design Workshop. Your details appear in the summary as you type.</p>
+      <a class="back-link" href="index.html">← Back to home</a>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="card form-card" aria-labelledby="formTitle">
+      <h2 id="formTitle">Registration form</h2>
+
+      <div class="progress" aria-hidden="true"><div class="progress-bar" id="progressBar"></div></div>
+      <p class="progress-text" id="progressText">0 of 7 fields complete</p>
+
+      <form id="registrationForm" novalidate>
+        <div class="field">
+          <label for="fullName">Full name</label>
+          <input type="text" id="fullName" name="fullName" required minlength="3" autocomplete="name">
+          <p class="error" id="fullNameError" aria-live="polite"></p>
+        </div>
+
+        <div class="field">
+          <label for="email">GCIT email</label>
+          <input type="email" id="email" name="email" required
+                 pattern="[A-Za-z0-9._]+\.gcit@rub\.edu\.bt"
+                 placeholder="name.gcit@rub.edu.bt" autocomplete="email">
+          <p class="error" id="emailError" aria-live="polite"></p>
+        </div>
+
+        <div class="field">
+          <label for="phone">Contact number</label>
+          <input type="tel" id="phone" name="phone" required
+                 pattern="[0-9]{8}" maxlength="8" inputmode="numeric" placeholder="8 digits">
+          <p class="hint" id="phoneCounter">0 / 8 digits</p>
+          <p class="error" id="phoneError" aria-live="polite"></p>
+        </div>
+
+        <div class="field">
+          <label for="event">Event</label>
+          <select id="event" name="event" required>
+            <option value="">Select an event</option>
+          </select>
+          <p class="error" id="eventError" aria-live="polite"></p>
+        </div>
+
+        <div class="field">
+          <label for="password">Password</label>
+          <div class="input-wrap">
+            <input type="password" id="password" name="password" required minlength="8" autocomplete="new-password">
+            <button type="button" class="toggle-btn" data-target="password" aria-label="Show password">Show</button>
+          </div>
+          <div class="strength"><div class="strength-bar" id="strengthBar"></div></div>
+          <p class="hint" id="strengthText">Strength: not entered</p>
+          <ul class="checklist" id="passwordChecklist">
+            <li data-rule="length">At least 8 characters</li>
+            <li data-rule="upper">One uppercase letter</li>
+            <li data-rule="number">One number</li>
+          </ul>
+          <p class="error" id="passwordError" aria-live="polite"></p>
+        </div>
+
+        <div class="field">
+          <label for="confirmPassword">Confirm password</label>
+          <div class="input-wrap">
+            <input type="password" id="confirmPassword" name="confirmPassword" required autocomplete="new-password">
+            <button type="button" class="toggle-btn" data-target="confirmPassword" aria-label="Show confirm password">Show</button>
+          </div>
+          <p class="error" id="confirmPasswordError" aria-live="polite"></p>
+        </div>
+
+        <div class="field checkbox-field">
+          <input type="checkbox" id="terms" name="terms" required>
+          <label for="terms">I have read and agree to the <button type="button" class="link-btn" id="termsLink">terms and conditions</button></label>
+          <p class="error" id="termsError" aria-live="polite"></p>
+        </div>
+
+        <p id="formMessage" class="form-message" role="status" aria-live="polite"></p>
+
+        <div class="actions">
+          <button type="submit" class="btn btn-primary">Register</button>
+          <button type="button" id="resetBtn" class="btn btn-secondary">Reset</button>
+        </div>
+      </form>
+    </section>
+
+    <aside class="card preview-card" aria-labelledby="previewTitle">
+      <h2 id="previewTitle">Registration summary</h2>
+      <div class="avatar-row">
+        <div class="avatar" id="avatar" aria-hidden="true">?</div>
+        <p class="badge" id="statusBadge">Not registered</p>
+      </div>
+      <dl class="preview-list">
+        <div class="preview-row">
+          <dt>Name</dt>
+          <dd id="previewName" class="placeholder">Not entered yet</dd>
+        </div>
+        <div class="preview-row">
+          <dt>Email</dt>
+          <dd id="previewEmail" class="placeholder">Not entered yet</dd>
+        </div>
+        <div class="preview-row">
+          <dt>Event</dt>
+          <dd id="previewEvent" class="placeholder">Not selected yet</dd>
+        </div>
+      </dl>
+      <p class="event-info" id="eventInfo">Choose an event to see what it is about.</p>
+    </aside>
+  </main>
+
+  <dialog id="termsDialog" class="terms-dialog" aria-labelledby="termsTitle">
+    <div class="terms-head">
+      <h2 id="termsTitle">Terms and conditions</h2>
+      <button type="button" class="terms-x" id="termsX" aria-label="Close terms and conditions">&times;</button>
+    </div>
+    <div class="terms-body">
+      <p>By registering for the GCIT Innovation Week Web Design Workshop you agree to the following.</p>
+      <ol>
+        <li><strong>Eligibility.</strong> Registration is open to GCIT students and staff with a valid GCIT email address.</li>
+        <li><strong>Registration.</strong> Registration is for the Web Design Workshop. The details you give must be accurate. Organisers may remove duplicate or incorrect registrations.</li>
+        <li><strong>Photo, video and audio consent.</strong> You allow the organisers to take photos, videos and audio recordings at the workshop and to use them in GCIT reports, on the college website and social media, and in promotional material. If you do not want to be photographed or recorded, tell an organiser at the workshop.</li>
+        <li><strong>Personal information.</strong> Your name, GCIT email, contact number and chosen event are used only to organise Innovation Week and to contact you about your event.</li>
+        <li><strong>Conduct.</strong> Follow the college rules and treat participants, staff, guests and venues with respect. Harassment, cheating or damage to property may lead to removal from the workshop.</li>
+        <li><strong>Safety and belongings.</strong> Follow the organisers’ instructions. You are responsible for your own belongings and equipment, and the organisers are not liable for loss or damage to them.</li>
+        <li><strong>Your work.</strong> You keep ownership of the projects and designs you create. The organisers may display them, with credit to you or your team, to promote the workshop.</li>
+        <li><strong>Places.</strong> Places at the workshop may be limited, and registering does not guarantee a place. The organisers’ decision on places is final.</li>
+        <li><strong>Changes.</strong> The organisers may change or cancel the workshop and will inform registered participants using the contact details you provided.</li>
+        <li><strong>Agreement.</strong> Ticking the box on the form confirms that you have read and accepted these terms.</li>
+      </ol>
+    </div>
+    <div class="terms-foot">
+      <button type="button" class="btn btn-primary" id="termsAccept">I agree</button>
+      <button type="button" class="btn btn-quiet" id="termsClose">Close</button>
+    </div>
+  </dialog>
+
+  <script src="events.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

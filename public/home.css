@@ -1,0 +1,47 @@
+/* Landing page styles. Colours come from the variables in style.css. */
+.site-header { flex-wrap: wrap; }
+.header-cta { margin-left: auto; text-decoration: none; }
+.btn { display: inline-block; text-decoration: none; text-align: center; }
+.btn-red { background: var(--red); color: #fff; }
+.btn-red:hover { background: var(--red-dark); }
+.btn-blue { color: var(--blue-dark); border-color: var(--blue); }
+.btn-blue:hover { background: var(--blue-tint); }
+
+.home { max-width: 62rem; margin: 0 auto; padding: 0 1.5rem 2rem; }
+
+.hero { padding: 1rem 0 2rem; }
+.eyebrow { margin: 0 0 0.5rem; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--red-dark); }
+.hero h2 { margin: 0 0 0.75rem; font-size: clamp(1.9rem, 5vw, 3rem); line-height: 1.1; color: var(--ink); }
+.chips { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0 0 0.9rem; }
+.chip { padding: 0.15rem 0.75rem; border-radius: 999px; font-size: 0.8rem; font-weight: 600; background: var(--blue-tint); color: var(--blue-dark); }
+.chip-open { background: var(--red); color: #fff; }
+.lead { max-width: 40rem; margin: 0 0 1.25rem; font-size: 1.1rem; color: var(--muted); }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.75rem; }
+.hero-photo { margin: 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--line); border-bottom: 4px solid var(--red); background: var(--blue-tint); }
+.hero-photo img { display: block; width: 100%; height: auto; max-height: 28rem; object-fit: cover; object-position: center top; }
+
+.section-title { margin: 0 0 0.25rem; font-size: 1.5rem; }
+.section-title::after { content: ""; display: block; width: 2.5rem; height: 4px; margin-top: 0.4rem; background: var(--red); border-radius: 2px; }
+.section-sub { margin: 0.5rem 0 1.25rem; color: var(--muted); }
+.about, .steps { padding: 1.5rem 0; }
+
+.about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1.25rem; margin-top: 1.25rem; }
+.about-card { border-top: 4px solid var(--blue); }
+.about-card h3 { margin: 0 0 0.4rem; font-size: 1.15rem; }
+.about-card p { margin: 0; color: var(--muted); }
+
+.step-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 1rem; margin: 1rem 0 0; padding: 0; list-style: none; counter-reset: step; }
+.step-list li { position: relative; padding: 0.9rem 1rem 0.9rem 3.2rem; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; counter-increment: step; }
+.step-list li::before { content: counter(step); position: absolute; left: 0.9rem; top: 0.9rem; width: 1.6rem; height: 1.6rem; border-radius: 50%; background: var(--blue-dark); color: #fff; font-weight: 700; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; }
+.step-list strong, .step-list span { display: block; }
+.step-list span { font-size: 0.9rem; color: var(--muted); }
+
+.home-footer { padding: 1.5rem; text-align: center; font-size: 0.9rem; color: var(--muted); border-top: 1px solid var(--line); }
+.back-link { display: inline-block; margin-top: 0.4rem; font-weight: 600; color: var(--blue-dark); text-decoration: none; }
+.back-link:hover { color: var(--red-dark); text-decoration: underline; }
+
+@media (max-width: 34rem) {
+  .header-cta { margin-left: 0; }
+  .site-header { gap: 0.9rem; }
+  .logo { width: 80px; }
+}
